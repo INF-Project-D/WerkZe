@@ -1,0 +1,24 @@
+{
+  "files.exclude": {
+    "frontend\\README.md": true,
+    "frontend\\yarn.lock": true,
+    "frontend\\tsconfig.json": true,
+    "frontend\\package.json": true,
+    "frontend\\nuxt.config.js": true,
+    "frontend\\.prettierrc": true,
+    "frontend\\.prettierignore": true,
+    "frontend\\.gitignore": true,
+    "frontend\\.eslintrc.js": true,
+    "frontend\\.editorconfig": true,
+    "frontend\\store": true,
+    "tools": true,
+    ".gitignore": true,
+    "backend": true,
+    "docker": true,
+    "docs": true,
+    ".github": true,
+    ".vscode": true,
+    "frontend\\static": true,
+    "frontend\\node_modules": true
+  }
+}
