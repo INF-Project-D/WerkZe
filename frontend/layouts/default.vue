@@ -1,6 +1,6 @@
 <template>
   <v-app light>
-    <v-navigation-drawer 
+    <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -34,7 +34,13 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer class="white--text" v-model="rightDrawer" :right="right" temporary fixed>
+    <v-navigation-drawer
+      class="white--text"
+      v-model="rightDrawer"
+      :right="right"
+      temporary
+      fixed
+    >
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -66,7 +72,7 @@ export default {
           title: 'Meldingen',
           to: '/notifications',
         },
-         {
+        {
           icon: 'mdi-account',
           title: 'Profiel',
           to: '/account',
@@ -76,6 +82,21 @@ export default {
           title: 'Uitloggen',
           to: '/',
         },
+        {
+          icon: 'mdi-login',
+          title: 'Inloggen',
+          to: '/login',
+        },
+        {
+          icon: 'mdi-arrow-right',
+          title: 'Account aanmaken',
+          to: '/signup',
+        },
+        {
+          icon: 'mdi-account-question',
+          title: 'Wachtwoord vergeten',
+          to: '/forgot_password',
+        }
       ],
       miniVariant: false,
       right: true,
