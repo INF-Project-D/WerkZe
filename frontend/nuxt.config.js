@@ -38,6 +38,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -57,7 +58,7 @@ export default {
           accent: '#31493C',
           secondary: '#7A9E7E',
           background: '#E8F1F2',
-          info: '#a4bfac',          
+          info: '#a4bfac',
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,

@@ -38,6 +38,7 @@
 <script>
 export default {
   // API Calls come here
+  
 }
 </script>
 <style>

@@ -8,20 +8,39 @@
       app
     >
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+        <div v-if="$auth.loggedIn">
+          <v-list-item
+            v-for="(item, i) in items_loggedIn"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </div>
+
+        <div v-else>
+          <v-list-item
+            v-for="(item, i) in items_loggedIn"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </div>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar color="primary" :clipped-left="clipped" fixed app>
@@ -56,7 +75,7 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [
+      items_loggedIn: [
         {
           icon: 'mdi-home',
           title: 'Home',
@@ -96,7 +115,25 @@ export default {
           icon: 'mdi-account-question',
           title: 'Wachtwoord vergeten',
           to: '/forgot_password',
-        }
+        },
+      ],
+      items_notLoggedIn: [
+        {
+          icon: 'mdi-home',
+          title: 'Home',
+          to: '/home',
+        },
+
+        {
+          icon: 'mdi-login',
+          title: 'Inloggen',
+          to: '/login',
+        },
+        {
+          icon: 'mdi-arrow-right',
+          title: 'Account aanmaken',
+          to: '/signup',
+        },
       ],
       miniVariant: false,
       right: true,
