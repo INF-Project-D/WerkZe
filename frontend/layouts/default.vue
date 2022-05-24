@@ -47,6 +47,22 @@
       <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
       <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
+      <v-app-bar color="primary" :clipped-left="clipped" fixed app>
+        <v-app-bar-nav-icon
+          class="white--text"
+          @click.stop="drawer = !drawer"
+        />
+        <v-toolbar-title class="white--text" v-text="title" />
+        <v-spacer />
+
+        <v-toolbar-title class="text">Zoeken</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon color="white">
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </v-app-bar>
     </v-app-bar>
     <v-main class="template">
       <v-container>
