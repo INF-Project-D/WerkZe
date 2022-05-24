@@ -41,6 +41,32 @@ export default {
     '@nuxtjs/auth',
   ],
 
+  axios: {
+    baseURL: 'localhost/api',
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'data.token',
+          required: true,
+          type: 'Bearer',
+        },
+        user: {
+          property: false,
+          autoFetch: true,
+        },
+
+        endpoints: {
+          login: { url: '/user/login', method: 'post' },
+          logout: { url: '/user/logout', method: 'post' },
+          user: { url: '/user', method: 'get' },
+        },
+      },
+    },
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -54,9 +80,11 @@ export default {
       light: true,
       themes: {
         light: {
+          wwhite: '#E8F1F2',
+          wblack: '#001A23',
           primary: '#7A9E7E',
           accent: '#31493C',
-          secondary: '#7A9E7E',
+          secondary: '#31493C',
           background: '#E8F1F2',
           info: '#a4bfac',
           warning: colors.amber.base,

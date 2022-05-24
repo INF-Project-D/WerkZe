@@ -1,5 +1,5 @@
 <template>
-  <v-app light>
+  <v-app light class="template">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <div v-if="$auth.loggedIn">
+        <div v-if="false">
           <v-list-item
             v-for="(item, i) in items_loggedIn"
             :key="i"
@@ -27,7 +27,7 @@
 
         <div v-else>
           <v-list-item
-            v-for="(item, i) in items_loggedIn"
+            v-for="(item, i) in items_notLoggedIn"
             :key="i"
             :to="item.to"
             router
@@ -48,7 +48,7 @@
       <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <v-main>
+    <v-main class="template">
       <v-container>
         <Nuxt />
       </v-container>
@@ -62,7 +62,7 @@
     >
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} WerkZe</span>
     </v-footer>
   </v-app>
 </template>
@@ -120,8 +120,8 @@ export default {
       items_notLoggedIn: [
         {
           icon: 'mdi-home',
-          title: 'Home',
-          to: '/home',
+          title: 'Home niet ingelogd',
+          to: '/',
         },
 
         {
@@ -134,6 +134,11 @@ export default {
           title: 'Account aanmaken',
           to: '/signup',
         },
+        {
+          icon: 'mdi-android-messages',
+          title: 'Alle banen bekijken',
+          to: '/jobs',
+        },
       ],
       miniVariant: false,
       right: true,
@@ -143,3 +148,13 @@ export default {
   },
 }
 </script>
+<style>
+.template {
+  background-image: linear-gradient(
+    325deg,
+    hsl(127deg 16% 55%) 0%,
+    hsl(164deg 24% 72%) 65%,
+    hsl(186deg 28% 93%) 100%
+  );
+}
+</style>

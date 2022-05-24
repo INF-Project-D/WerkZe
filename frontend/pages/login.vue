@@ -37,8 +37,7 @@
 
 <script>
 export default {
-  // API Calls come here
-  
+  // console log for test button
 }
 </script>
 <style>
