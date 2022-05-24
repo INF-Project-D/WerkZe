@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: werkze_frontend
+    env_file: ../../.env
+    build:
+      context: ${FRONTEND_ROOT}
+      dockerfile: ./Dockerfile
+    command: yarn dev
+    environment:
+      - HOST=0.0.0.0
+    tty: true
+    volumes:
+      - ${FRONTEND_ROOT}/components:/usr/local/app-frontend/components
+      - ${FRONTEND_ROOT}/pages:/usr/local/app-frontend/pages
+      - ${FRONTEND_ROOT}/static:/usr/local/app-frontend/static
+      - ${FRONTEND_ROOT}/store:/usr/local/app-frontend/store
+      - ${FRONTEND_ROOT}/nuxt.config.js:/usr/local/app-frontend/nuxt.config.js
+      - ${FRONTEND_ROOT}/package.json:/usr/local/app-frontend/package.json
+      - ${FRONTEND_ROOT}/tsconfig.json:/usr/local/app-frontend/tsconfig.json
+    ports:
+      - '3001:3000'
