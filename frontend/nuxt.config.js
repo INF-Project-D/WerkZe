@@ -41,10 +41,6 @@ export default {
     '@nuxtjs/auth',
   ],
 
-  axios: {
-    baseURL: 'localhost/api',
-  },
-
   auth: {
     strategies: {
       local: {
