@@ -4,11 +4,14 @@
   "name": "WerkZe",
   "dockerFile": "Dockerfile",
   "runArgs": ["--init", "--privileged"],
-  "mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+  ],
   "overrideCommand": false,
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh"
   },
+  "remoteEnv": {},
 
   // Configure tool-specific properties.
   "customizations": {
