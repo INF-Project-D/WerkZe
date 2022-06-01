@@ -34,16 +34,19 @@
             
             <p></p>
             <div>
-            <h2 class="text2"> Omschrijving:</h2>
-                <span v-if="!readMoreActivated">{{longText.slice(0, 500)}}   </span>
+              <h2 class="text2"> Omschrijving:</h2>
+
+              <span v-if="!readMoreActivated">{{longText.slice(0, 500)}}   </span>
               <a class="black--text" v-if="!readMoreActivated" @click="activateReadMore" href="#">
-              lees meer
+                lees meer
               </a>
              
               <span v-if="readMoreActivated" v-html="longText"></span>
+
               <a class="black--text" v-if="readMoreActivated" @click="deactivateReadMore" href="#">
                 lees minder
               </a>
+              
             </div>
             <p></p>
             <v-row justify="leftcenter" align="center">
