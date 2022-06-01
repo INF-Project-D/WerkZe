@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <div v-if="true">
+        <div v-if="false">
           <v-list-item
             v-for="(item, i) in items_loggedIn"
             :key="i"
@@ -110,21 +110,6 @@ export default {
           icon: 'mdi-logout',
           title: 'Uitloggen',
           to: '/',
-        },
-        {
-          icon: 'mdi-login',
-          title: 'Inloggen',
-          to: '/login',
-        },
-        {
-          icon: 'mdi-arrow-right',
-          title: 'Account aanmaken',
-          to: '/signup',
-        },
-        {
-          icon: 'mdi-account-question',
-          title: 'Wachtwoord vergeten',
-          to: '/forgot_password',
         },
       ],
       items_notLoggedIn: [
