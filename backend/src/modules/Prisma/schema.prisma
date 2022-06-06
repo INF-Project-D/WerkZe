@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows"]
 }
 
 generator dbml {
@@ -12,4 +13,42 @@ generator dbml {
 datasource db {
   provider = "postgresql"
   url      = env("POSTGRES_URL")
+}
+
+enum UserRole {
+  ADMIN
+  HIRING
+  OPEN_TO_WORK
+}
+
+model User {
+  id          String       @id @default(cuid())
+  firstName   String
+  lastName    String
+  phoneNumber String
+  email       String       @unique
+  password    String
+  role        UserRole
+  categories  String[]
+  about       String       @default("")
+  likesTo     String[]
+  address     UserAddress?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model UserAddress {
+  id      String @id @default(cuid())
+  user    User   @relation(fields: [userId], references: [id])
+  address String
+  city    String
+  state   String
+  zip     String
+  country String
+
+  userId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }

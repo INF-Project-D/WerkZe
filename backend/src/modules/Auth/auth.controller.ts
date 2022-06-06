@@ -3,14 +3,11 @@ import { UserService } from '@modules/User/user.service';
 import {
   Body,
   Controller,
-  Get,
   HttpException,
   HttpStatus,
-  Inject,
   Post,
 } from '@nestjs/common';
-import { User } from '@prisma/client';
-import { CurrentUser, Public } from '@decorators';
+import { Public } from '@decorators';
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/sign-in.dto';
 
@@ -19,7 +16,7 @@ export class AuthController {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    @Inject('CRYPTO') private crypto: Argon2CryptoProvider,
+    private crypto: Argon2CryptoProvider,
   ) {}
 
   @Post('/token')
