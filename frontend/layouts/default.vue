@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <div v-if="false">
+        <div v-if="true">
           <v-list-item
             v-for="(item, i) in items_loggedIn"
             :key="i"
@@ -71,9 +71,6 @@
       fixed
     >
     </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }} WerkZe</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -110,6 +107,27 @@ export default {
           icon: 'mdi-logout',
           title: 'Uitloggen',
           to: '/',
+        },
+        {
+          icon: 'mdi-home',
+          title: 'Home niet ingelogd',
+          to: '/',
+        },
+
+        {
+          icon: 'mdi-login',
+          title: 'Inloggen',
+          to: '/login',
+        },
+        {
+          icon: 'mdi-arrow-right',
+          title: 'Account aanmaken',
+          to: '/signup',
+        },
+        {
+          icon: 'mdi-android-messages',
+          title: 'Alle banen bekijken',
+          to: '/jobs',
         },
       ],
       items_notLoggedIn: [
