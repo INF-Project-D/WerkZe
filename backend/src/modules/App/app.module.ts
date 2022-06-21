@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Argon2Module } from '@modules/Argon2/argon2.module';
 import { AuthModule } from '@modules/Auth/auth.module';
 import { AuthGuard } from '@modules/Auth/guards/auth.guard';

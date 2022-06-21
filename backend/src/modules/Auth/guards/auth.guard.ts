@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { JwtPayload } from '@lib/interfaces/auth';
 import { UserService } from '@modules/User/user.service';
 import {
@@ -10,6 +11,7 @@ import { Reflector } from '@nestjs/core';
 import { IS_PUBLIC_KEY } from '@decorators';
 import { AuthService } from '../auth.service';
 import { Request } from 'express';
+import { UserRole } from '@prisma/client';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -50,7 +52,16 @@ export class AuthGuard implements CanActivate {
 
     request.user = user;
 
-    // TODO: Allowed role check
+    const allowedRoles = this.reflector.get<UserRole[]>(
+      'roles',
+      context.getHandler(),
+    );
+
+    if (!allowedRoles || allowedRoles.length === 0) {
+      return true;
+    }
+
+    if (allowedRoles.includes(user.role)) return true;
 
     return false;
   }

@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { PrismaClient, UserRole } from '@prisma/client';
 
 const prisma = new PrismaClient();

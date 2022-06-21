@@ -29,6 +29,13 @@ export class UserService {
         role: true,
         createdAt: true,
         updatedAt: true,
+        firstName: true,
+        lastName: true,
+        categories: true,
+        address: includeSensitiveInformation,
+        about: true,
+        likesTo: true,
+        phoneNumber: includeSensitiveInformation,
       },
     });
     if (!user) throw new NotFoundError('user_not_found');
@@ -62,6 +69,13 @@ export class UserService {
         role: true,
         createdAt: true,
         updatedAt: true,
+        firstName: true,
+        lastName: true,
+        categories: true,
+        likesTo: true,
+        about: true,
+        address: false,
+        phoneNumber: false,
       },
     });
   }
@@ -114,6 +128,12 @@ export class UserService {
           password: user.password
             ? await this.crypto.hashPassword(user.password)
             : undefined,
+          phoneNumber: user.phoneNumber,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          about: user.about,
+          categories: user.categories,
+          likesTo: user.likesTo,
         },
         select: {
           password: false,
