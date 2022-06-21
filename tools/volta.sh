@@ -9,3 +9,5 @@ grep --silent "$VOLTA_HOME/bin" <<<$PATH || PATH="$VOLTA_HOME/bin:$PATH"
 echo "Installing Latest Node.js"
 volta install node@latest
 volta install yarn
+
+source ~/.bashrc ~/.zshrc
