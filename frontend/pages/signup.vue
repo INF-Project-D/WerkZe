@@ -25,7 +25,12 @@
               </v-col>
             </v-row>
             <v-row justify="center" align="center"
-              ><v-btn class="space" color="secondary" elevation="11"
+              ><v-btn
+                class="space"
+                color="secondary"
+                elevation="11"
+                text
+                to="/recommended"
                 ><v-icon>mdi-account-lock-open-outline</v-icon>Druk hier om een
                 account aan te maken!</v-btn
               >

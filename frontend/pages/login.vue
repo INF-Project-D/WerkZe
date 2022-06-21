@@ -18,7 +18,7 @@
               </v-col>
             </v-row>
             <v-row justify="center" align="center"
-              ><v-btn color="secondary" elevation="11"
+              ><v-btn color="secondary" elevation="11" text to="/recommended"
                 ><v-icon left> mdi-card-account-details </v-icon>Druk hier om in
                 te loggen</v-btn
               >
@@ -30,6 +30,37 @@
             </v-row>
           </v-card-text>
         </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <!-- Text "Maak een account" That links to /signup-->
+      <v-col cols="12" sm="10" md="12">
+        <v-row justify="center" align="center">
+          <v-col cols="12" sm="10" md="12">
+            <v-card color="background">
+              <v-card-text>
+                <p></p>
+                <v-row justify="center" align="center">
+                  <h1 class="text">Nog geen account?</h1>
+                </v-row>
+                <v-row justify="center" align="center">
+                  <v-col
+                    justify="center"
+                    align="center"
+                    cols="12"
+                    sm="10"
+                    md="12"
+                  >
+                    <v-btn color="secondary" elevation="11" text to="/signup"
+                      ><v-icon left> mdi-account-plus </v-icon>Druk hier om een
+                      account aan te maken</v-btn
+                    >
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>

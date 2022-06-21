@@ -8,7 +8,7 @@
       app
     >
       <v-list>
-        <div v-if="true">
+        <div v-if="false">
           <v-list-item
             v-for="(item, i) in items_loggedIn"
             :key="i"
@@ -28,6 +28,23 @@
         <div v-else>
           <v-list-item
             v-for="(item, i) in items_notLoggedIn"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </div>
+
+        <div v-else>
+          <v-list-item
+            v-for="(item, i) in items_b"
             :key="i"
             :to="item.to"
             router
@@ -108,20 +125,22 @@ export default {
           title: 'Uitloggen',
           to: '/',
         },
+      ],
+      items_notLoggedIn: [
         {
           icon: 'mdi-home',
-          title: 'Home niet ingelogd',
+          title: 'Begin pagina',
           to: '/',
         },
 
         {
           icon: 'mdi-login',
-          title: 'Inloggen',
+          title: 'Inloggen op je account',
           to: '/login',
         },
         {
           icon: 'mdi-arrow-right',
-          title: 'Account aanmaken',
+          title: 'Een account aanmaken',
           to: '/signup',
         },
         {
@@ -130,27 +149,31 @@ export default {
           to: '/jobs',
         },
       ],
-      items_notLoggedIn: [
+      items_b: [
         {
           icon: 'mdi-home',
-          title: 'Home niet ingelogd',
+          title: 'Home',
+          to: '/home',
+        },
+        {
+          icon: 'mdi-briefcase-variant',
+          title: 'Solicitanten',
+          to: '/recommended_b',
+        },
+        {
+          icon: 'mdi-bell-ring',
+          title: 'Berichten',
+          to: '/notifications_b',
+        },
+        {
+          icon: 'mdi-account',
+          title: 'Profiel',
+          to: '/account_b',
+        },
+        {
+          icon: 'mdi-logout',
+          title: 'Uitloggen',
           to: '/',
-        },
-
-        {
-          icon: 'mdi-login',
-          title: 'Inloggen',
-          to: '/login',
-        },
-        {
-          icon: 'mdi-arrow-right',
-          title: 'Account aanmaken',
-          to: '/signup',
-        },
-        {
-          icon: 'mdi-android-messages',
-          title: 'Alle banen bekijken',
-          to: '/jobs',
         },
       ],
       miniVariant: false,
